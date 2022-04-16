@@ -5,7 +5,15 @@ export const GoogleSignIn = ({ auth }) => {
 
   return (
     <>
-      <button onClick={() => SignInWithGoogle()}>Sign In With Google</button>
+      <button
+        onClick={async () => {
+          console.log("Signing in with google");
+          await SignInWithGoogle();
+          console.log("Signed in with google");
+        }}
+      >
+        Sign In With Google
+      </button>
     </>
   );
 };

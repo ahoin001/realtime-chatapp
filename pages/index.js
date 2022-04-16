@@ -1,13 +1,14 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import { auth, logout } from "../Firebase/FirebaseConfig";
+import { auth, logout, addMessage, getUsers,addUser } from "../Firebase/FirebaseConfig";
 
 // react-firebase-hooks reduced boiler plate and mmade firebase interactions much more easier, use more often
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import { GoogleSignIn } from "../components/GoogleSignIn";
 import { SignInWithEmailAndPassword } from "../components/SignInWithEmailAndPassword";
+import { ChatRoom } from "../components/ChatRoom";
 
 export default function Home() {
   // Firebase Hook to listen to change in user authentication
@@ -36,6 +37,11 @@ export default function Home() {
           )}
         </section>
         <section>{user ? <SignOut /> : "User is not signed in"}</section>
+        <button onClick={getUsers}>Get Users (Console Log)</button>
+        <button onClick={addUser}>Add User (Hardcoded)</button>
+        <button onClick={addMessage}>Add Message (Hard coded user)</button>
+
+        <ChatRoom />
       </main>
     </div>
   );
