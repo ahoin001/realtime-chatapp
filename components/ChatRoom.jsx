@@ -11,7 +11,9 @@ const myQuery = query(
 );
 export const ChatRoom = () => {
   // returns array of each document in collection as an object from database
-  const [messages, messagesLoading] = useCollectionData(myQuery);
+  const [messages, messagesLoading] = useCollectionData(myQuery, {
+    idField: "id",
+  });
   console.log("CHATROOM POW: ", messages);
 
   if (messagesLoading) {
@@ -19,10 +21,10 @@ export const ChatRoom = () => {
   }
   return (
     <div>
-      <p>messages exsists!</p>
-      {messages.map((msg) => {
-        return <ChatMessage key={msg.createdAt} message={msg} />;
-      })}
+      {messages &&
+        messages.map((msg) => {
+          return <ChatMessage key={msg.createdAt} message={msg} />;
+        })}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// import firebase from 'firebase';
 import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
 import {
@@ -6,7 +5,6 @@ import {
   collection,
   addDoc,
   getDocs,
-  onSnapshot,
   serverTimestamp,
 } from "firebase/firestore";
 

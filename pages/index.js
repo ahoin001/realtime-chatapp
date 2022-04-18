@@ -1,7 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import { auth, logout, addMessage, getUsers,addUser } from "../Firebase/FirebaseConfig";
+import {
+  auth,
+  logout,
+  addMessage,
+  getUsers,
+  addUser,
+} from "../Firebase/FirebaseConfig";
 
 // react-firebase-hooks reduced boiler plate and mmade firebase interactions much more easier, use more often
 import { useAuthState } from "react-firebase-hooks/auth";
